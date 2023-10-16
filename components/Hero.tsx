@@ -51,7 +51,7 @@ export default function Hero() {
   return (
     <div
       id="hero"
-      className="z-10 px-4 bg-gradient-to-b from-[#0c0c1d] to-[#111132] relative flex flex-col sm:flex-row w-full max-w-full h-screen overflow-hidden "
+      className="z-10 px-4  bg-gradient-to-b from-[#0c0c1d] to-[#111132] relative flex items-center justify-center flex-col sm:flex-row gap-y-6 w-full max-w-full h-screen overflow-hidden "
     >
       <motion.div
         variants={textVariants}
@@ -61,19 +61,19 @@ export default function Hero() {
       >
         <motion.h3
           variants={textVariants}
-          className="text-purple-900 text-3xl opacity-70 tracking-[5px] font-bold"
+          className="text-yellow-500 text-xl sm:text-3xl opacity-70 tracking-[5px] font-bold"
         >
           SARATH KUMAR
         </motion.h3>
         <motion.h1
           variants={textVariants}
-          className="text-7xl font-bold text-center"
+          className="text-4xl sm:text-6xl md:text-7xl font-bold text-center"
         >
           Web Developer <br />
           and UI designer
         </motion.h1>
         <motion.div variants={textVariants} className="space-x-7">
-          <Button variant="default" asChild className="text-white border-1">
+          <Button variant="default" asChild className=" border-1">
             <Link href="#projects" className="text-gray-800">
               See the Latest Works
             </Link>
@@ -94,6 +94,10 @@ export default function Hero() {
           </Link>
         </motion.div>
       </motion.div>
+
+      <div className="flex-1 flex items-center justify-center">
+        <Image src="/s1.jpg" alt="sarath photo" height={300} width={300} />
+      </div>
       <motion.p
         variants={sliderVariants}
         initial="initial"
@@ -103,9 +107,6 @@ export default function Hero() {
         Unconventional{" "}
         <span className="text-yellow-600 opacity-10">thinker!</span>
       </motion.p>
-      <div className="flex-1 flex items-center justify-center">
-        <Image src="/s1.jpg" alt="sarath photo" height={300} width={300} />
-      </div>
     </div>
   );
 }

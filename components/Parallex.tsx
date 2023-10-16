@@ -27,7 +27,7 @@ export default function Parallex({ type }: { type: string }) {
       >
         {type === "services" ? "Who Am I?" : "What I Do?"}
       </motion.h1>
-      <motion.div className="absolute w-full h-full  bg-bottom bg-cover bg-[url('/assets/m1.png')] z-30 "></motion.div>
+      <motion.div className="absolute w-full h-full  bg-bottom bg-contain bg-no-repeat sm:bg-cover bg-[url('/assets/m1.png')] z-30 "></motion.div>
       <motion.div
         style={{
           y: yBg,

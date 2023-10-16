@@ -4,7 +4,13 @@ import React, { useRef, useState } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Loader2 } from "lucide-react";
+import {
+  FileCheck,
+  Linkedin,
+  LinkedinIcon,
+  Loader2,
+  Mails,
+} from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
 import {
@@ -24,7 +30,7 @@ import { useRouter } from "next/navigation";
 
 const variants = {
   initial: {
-    y: 500,
+    y: 200,
     opacity: 0,
   },
   animate: {
@@ -41,7 +47,7 @@ export default function Contact() {
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "-200px" });
   const [isLoading, setIsLoading] = useState(false);
   const formSchema = z.object({
     name: z.string().min(2).max(50),
@@ -98,26 +104,70 @@ export default function Contact() {
       initial="initial"
       whileInView="animate"
       variants={variants}
-      className="h-screen pt-12 max-w-6xl mx-auto flex items-center justify-center gap-[50px]"
+      className="h-screen  max-w-6xl mx-auto flex-col sm:flex-row px-4 flex items-center justify-center gap-[50px]"
     >
       <motion.div
         variants={variants}
         className="flex-1 flex flex-col gap-[40px]"
       >
-        <motion.h1 variants={variants} className="text-[100px] font-semibold">
-          Let's Talk
+        <motion.h1
+          variants={variants}
+          className="text-6xl sm:text-8xl md:text-[100px] font-semibold"
+        >
+          Let's{" "}
+          <span className="hover:text-yellow-400 duration-300 transition-all cursor-pointer hover:scale-105 ">
+            Talk
+          </span>
         </motion.h1>
-        <motion.div variants={variants}>
-          <h2 className="font-semibold">mail</h2>
-          <span className="text-sm text-muted-foreground">mail@.com</span>
+        <motion.div
+          variants={variants}
+          className="flex gap-3 items-center  bg-slate-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 px-3 py-2 rounded-xl "
+        >
+          <Mails className="h-14 w-14 text-yellow-500" />
+          <div>
+            <h2 className="font-bold">Email</h2>
+            <a
+              className="text-blue-700"
+              href="mailto:sarathkumartk98@gmail.com"
+            >
+              sarathkumartk98@gmail.com
+            </a>
+          </div>
         </motion.div>
-        <motion.div variants={variants}>
-          <h2>mail</h2>
-          <span>mail@.com</span>
+
+        <motion.div
+          variants={variants}
+          className="flex gap-3 items-center  bg-slate-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 px-3 py-2 rounded-xl "
+        >
+          <FileCheck className="h-14 w-14 text-yellow-500" />
+          <div>
+            <h2 className="font-bold">My Resume</h2>
+            <a
+              className="text-blue-700"
+              href="https://drive.google.com/file/d/17Dey8mDvQDky9eIseSyPpm1Y933nZsCb/view"
+              target="_blank"
+              rel="noreferrer"
+            >
+              See My Resume
+            </a>
+          </div>
         </motion.div>
-        <motion.div variants={variants}>
-          <h2>mail</h2>
-          <span>mail@.com</span>
+        <motion.div
+          variants={variants}
+          className="flex gap-3 items-center  bg-slate-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 px-3 py-2 rounded-xl "
+        >
+          <Linkedin className="h-14 w-14 text-yellow-500" />
+          <div>
+            <h2 className="font-bold">LinkedIn</h2>
+            <a
+              className="text-blue-700"
+              href="https://www.linkedin.com/in/sarathfsd/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn Profile
+            </a>
+          </div>
         </motion.div>
       </motion.div>
       <div className="flex-1 relative">
@@ -127,36 +177,34 @@ export default function Contact() {
           whileInView={{ opacity: 0 }}
           transition={{ delay: 3, duration: 1 }}
         >
-          <svg fill="#facc15" width="250px" height="250px" viewBox="0 0 64 64">
+          <svg width="200px" height="200px" viewBox="0 0 24 24" fill="none">
             <motion.path
-              initial={{ scale: 0 }}
-              animate={isInView && { scale: 1 }}
-              transition={{ duration: 1 }}
-              d="M62.9891,2.5618c-0.0765-0.5779-0.6611-0.9805-1.2299-0.8401L7.4043,15.2065c-0.3535,0.0879-0.6318,0.3608-0.7256,0.7129     s0.0112,0.7275,0.2744,0.9795l13.9343,13.3583l-2.7649,17.1495c-0.1079,0.6712,0.4969,1.2576,1.1582,1.1445l18.0805-3.1324     l17.1832,9.6988c0.1523,0.0859,0.3218,0.1289,0.4917,0.1289c0.1523,0,0.3047-0.0347,0.4453-0.1045     c0.2969-0.1475,0.5015-0.4331,0.5459-0.7617l6.9639-51.5542C63.0031,2.7372,63.0007,2.6487,62.9891,2.5618z M9.647,16.7109     L56.8914,4.9902L22.2545,28.7978L9.647,16.7109z M36.9146,43.4663l-16.5942,2.875l2.4995-15.5054L58.8633,6.0615L36.9146,43.4663     z M54.2427,52.6504l-15.3231-8.6492l21.4231-36.509L54.2427,52.6504z"
+              initial={{ pathLength: 0 }}
+              animate={isInView && { pathLength: 1, stroke: "#facc15" }}
+              transition={{ duration: 1, delay: 1 }}
+              d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z"
+              stroke="#ffff"
+              stroke-width="1.5"
+              stroke-miterlimit="0"
             />
-
             <motion.path
-              fillOpacity={0}
-              initial={{ x: 20 }}
-              animate={isInView && { x: 0, fillOpacity: 1 }}
-              transition={{ duration: 1 }}
-              d="M14.4438,51.6099l-4.6948,5.209c-0.3701,0.4102-0.3369,1.0425,0.0732,1.4121c0.1909,0.1724,0.4307,0.2573,0.6689,0.2573     c0.2734,0,0.5459-0.1113,0.7432-0.3306l4.6948-5.209c0.3701-0.4102,0.3369-1.0425-0.0732-1.4121     C15.4463,51.1675,14.8135,51.2002,14.4438,51.6099z"
+              initial={{ pathLength: 0 }}
+              animate={isInView && { pathLength: 1, stroke: "#facc15" }}
+              transition={{ duration: 1, delay: 1 }}
+              d="M18.5 9C18.5 8.4 18.03 7.48 17.33 6.73C16.69 6.04 15.84 5.5 15 5.5"
+              stroke-width="0.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             />
-
             <motion.path
-              fillOpacity={0}
-              initial={{ x: 20 }}
-              animate={isInView && { x: 0, fillOpacity: 1 }}
-              transition={{ duration: 1 }}
-              d="M5.9478,29.0562l-4.6909,5.2085c-0.3696,0.4106-0.3364,1.043,0.0742,1.4126c0.1909,0.1719,0.4302,0.2568,0.6685,0.2568     c0.2739,0,0.5459-0.1113,0.7437-0.3311l4.6909-5.2085c0.3696-0.4106,0.3364-1.043-0.0742-1.4126     C6.9487,28.6128,6.3179,28.6455,5.9478,29.0562z"
-            />
-
-            <motion.path
-              fillOpacity={0}
-              initial={{ x: 20 }}
-              animate={isInView && { x: 0, fillOpacity: 1 }}
-              transition={{ duration: 1 }}
-              d="M40.8164,55.4331l-4.6909,5.2051c-0.3701,0.4102-0.3369,1.0425,0.0732,1.4121c0.1909,0.1724,0.4307,0.2573,0.6689,0.2573     c0.2734,0,0.5459-0.1113,0.7432-0.3306l4.6909-5.2051c0.3701-0.4102,0.3369-1.0425-0.0732-1.4121     C41.8188,54.9907,41.186,55.0234,40.8164,55.4331z"
+              initial={{ pathLength: 0 }}
+              animate={isInView && { pathLength: 1, stroke: "#facc15" }}
+              transition={{ duration: 1, delay: 1 }}
+              d="M22 9C22 5.13 18.87 2 15 2"
+              stroke="#ffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             />
           </svg>
         </motion.div>

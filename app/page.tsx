@@ -4,6 +4,7 @@ import Parallex from "@/components/Parallex";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import Skills from "@/components/Skills";
 export default function Home() {
   return (
     <>
@@ -11,14 +12,17 @@ export default function Home() {
         <Navbar />
         <Hero />
       </section>
-      <section className="min-h-screen scroll-snap-y">
+      <section id="about" className="min-h-screen scroll-snap-y">
         <Parallex type="services" />
       </section>
-      <section id="about" className="min-h-screen scroll-snap-y">
+      <section className="min-h-screen scroll-snap-y">
         <About />
       </section>
-      <section className="min-h-screen scroll-snap-y">
+      <section id="skills" className="min-h-screen scroll-snap-y">
         <Parallex type="portfolio" />
+      </section>
+      <section className="min-h-screen scroll-snap-y">
+        <Skills />
       </section>
       <section id="projects">
         <Projects />

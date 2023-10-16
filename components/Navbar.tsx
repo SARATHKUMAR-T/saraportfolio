@@ -1,7 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Contact, FolderKanban, Home, Menu, Webhook } from "lucide-react";
+import {
+  Contact,
+  FolderKanban,
+  Home,
+  Menu,
+  Target,
+  Webhook,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -16,6 +23,11 @@ export default function Header() {
       href: "/#about",
       label: "About",
       icon: <Contact className="mr-1 w-6  h-6 text-yellow-400" />,
+    },
+    {
+      href: "/#skills",
+      label: "Skills",
+      icon: <Target className="mr-1 w-6  h-6 text-yellow-400" />,
     },
     {
       href: "/#projects",
