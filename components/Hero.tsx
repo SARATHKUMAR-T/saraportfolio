@@ -47,11 +47,19 @@ const sliderVariants: {} = {
   },
 };
 
+const spring = {
+  type: "spring",
+  stiffness: 700,
+  damping: 30,
+};
+
 export default function Hero() {
   return (
-    <div
+    <motion.div
+      layout
+      transition={spring}
       id="hero"
-      className="z-10 px-4  bg-gradient-to-b from-[#0c0c1d] to-[#111132] relative flex items-center justify-center flex-col sm:flex-row gap-y-6 w-full max-w-full h-screen overflow-hidden "
+      className="z-10 px-4 py-10  bg-gradient-to-b from-[#0c0c1d] to-[#111132] relative flex items-center justify-center flex-col md:flex-row gap-y-6 w-full max-w-full min-h-screen overflow-hidden "
     >
       <motion.div
         variants={textVariants}
@@ -61,13 +69,13 @@ export default function Hero() {
       >
         <motion.h3
           variants={textVariants}
-          className="text-yellow-500 text-xl sm:text-3xl opacity-70 tracking-[5px] font-bold"
+          className="text-yellow-500 text-xl sm:text-3xl opacity-70 tracking-[6px] font-extrabold"
         >
           SARATH KUMAR
         </motion.h3>
         <motion.h1
           variants={textVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold text-center"
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase text-center"
         >
           Web Developer <br />
           and UI designer
@@ -107,6 +115,6 @@ export default function Hero() {
         Unconventional{" "}
         <span className="text-yellow-600 opacity-10">thinker!</span>
       </motion.p>
-    </div>
+    </motion.div>
   );
 }

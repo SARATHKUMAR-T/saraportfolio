@@ -100,11 +100,12 @@ export default function Contact() {
 
   return (
     <motion.div
+      layout
       ref={ref}
       initial="initial"
       whileInView="animate"
       variants={variants}
-      className="h-screen  max-w-6xl mx-auto flex-col sm:flex-row px-4 flex items-center justify-center gap-[50px]"
+      className="min-h-screen py-10  max-w-6xl mx-auto flex-col sm:flex-row px-4 flex items-center justify-center gap-[50px]"
     >
       <motion.div
         variants={variants}
@@ -193,8 +194,8 @@ export default function Contact() {
               transition={{ duration: 1, delay: 1 }}
               d="M18.5 9C18.5 8.4 18.03 7.48 17.33 6.73C16.69 6.04 15.84 5.5 15 5.5"
               stroke-width="0.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <motion.path
               initial={{ pathLength: 0 }}
@@ -203,15 +204,15 @@ export default function Contact() {
               d="M22 9C22 5.13 18.87 2 15 2"
               stroke="#ffff"
               stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </motion.div>
         <Form {...form}>
           <motion.form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8"
+            className="space-y-8 w-full "
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 4, duration: 1 }}
